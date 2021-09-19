@@ -1,0 +1,35 @@
+{
+    "description": "Fast CLI Meme Generator",
+    "arguments": [
+        {
+            "long": "template",
+            "var": "STRING",
+            "help": "Name of the template of the meme that should be generated",
+            "default": "monke",
+            "type": "str"
+        },
+
+        {
+            "long": "font-size",
+            "var": "NUMBER",
+            "help": "Font size of the text that is generated onto the picture",
+            "default": 70,
+            "type": "int"
+        },
+
+        {
+            "long": "text",
+            "var": "STRING",
+            "help": "Text that should be put onto the template",
+            "type": "str"
+        },
+
+        {
+            "long": "font",
+            "var": "STRING",
+            "help": "Path to font that should be used",
+            "default": "fonts/arial.ttf",
+            "type": "str"
+        }
+    ]
+}
