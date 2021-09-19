@@ -8,7 +8,7 @@ config = json.load(open("config.json", 'r'))
 if sys.argv[1] == "help":
     print(
     """
-    [----Fast Meme Generator v1.0----]
+    [---- Fast Meme Generator v1.0 ----]
     Usage:
         python main.py MEMETEMPLATE TEXT [FontSize]
 
@@ -32,7 +32,7 @@ d1.text(
     printingText,
     fill = (0, 0, 0),
     font = font,
-    align = 'centre'
+    anchor = 'mm'
 )
 def alNumify(input_string):
     final_string = ""
