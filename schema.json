@@ -18,17 +18,33 @@
         },
 
         {
-            "long": "text",
-            "var": "STRING",
-            "help": "Text that should be put onto the template",
-            "type": "str"
-        },
-
-        {
             "long": "font",
             "var": "STRING",
             "help": "Path to font that should be used",
             "default": "fonts/arial.ttf",
+            "type": "str"
+        },
+
+        {
+            "long": "clipboard",
+            "var": "BOOLEAN",
+            "help": "Copies the resulting image into Clipboard (Windows only)",
+            "default": false,
+            "type": "bool"
+        },
+
+        {
+            "long": "output",
+            "var": "STRING",
+            "help": "Defines the output path. If set to \"-\" the file gets an automated assigned name",
+            "default": "-",
+            "type": "str"
+        },
+
+        {
+            "long": "text",
+            "var": "STRING",
+            "help": "Text that should be put onto the template",
             "type": "str"
         }
     ]

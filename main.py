@@ -1,10 +1,13 @@
 from PIL import Image, ImageDraw, ImageFont
 import json
 import argparse
-from io import BytesIO
-import win32clipboard
+import re
 
 def send_to_clipboard(image):
+
+    from io import BytesIO
+    import win32clipboard
+
     output = BytesIO()
     image.convert('RGB').save(output, 'BMP')
     data = output.getvalue()[14:]
@@ -62,6 +65,9 @@ template = args.template
 fontSize = args.font_size
 printingText = args.text
 fontPath = args.font
+clipboard = args.clipboard
+output = args.output
+
 
 font = ImageFont.truetype(fontPath, int(fontSize))
 image = Image.open(templates[template]['path'])
@@ -75,16 +81,11 @@ imageDraw.text(
     anchor = 'mm'
 )
 
-# TODO: Refactor
-def alNumify(input_string):
-    final_string = ""
-    for character in input_string:
-        if(character.isalnum()):
-            # if character is alphanumeric concat to final_string
-            final_string = final_string + character
-    return final_string
+if output == "-":
+    image.save(re.sub("[^\w]", "", printingText) + ".png")
+else:
+    image.save(output)
 
-image.save(alNumify(printingText) + ".png")
-
-send_to_clipboard(image)
-
+if clipboard:
+    send_to_clipboard(image)
+    print("Meme was copied to the clipboard")
