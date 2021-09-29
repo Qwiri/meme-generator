@@ -74,12 +74,20 @@ font = ImageFont.truetype(fontPath, int(fontSize))
 image = Image.open(templates[template]['path'])
 imageDraw = ImageDraw.Draw(image)
 
+textWidth, textHeight = imageDraw.textsize(printingText, font)
+xOffset, yOffset = font.getoffset(printingText)
+
+textWidth += xOffset
+textHeight += yOffset
+
+textPosX = templates[template]['pos'][0] - textWidth / 2
+textPosY = templates[template]['pos'][1] - textHeight / 2
+
 imageDraw.text(
-    (templates[template]['pos'][0],templates[template]['pos'][1]),
+    (textPosX, textPosY),
     printingText,
     fill = (0, 0, 0),
     font = font,
-    anchor = 'mm'
 )
 
 if output == "-":

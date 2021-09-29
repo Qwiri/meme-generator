@@ -1,6 +1,10 @@
 {
     "monke" : {
         "path": "res/monke.png",
-        "pos": [1200,70]
+        "pos": [1440,120]
+    },
+    "sad_anime": {
+        "path": "res/animetemplate.png",
+        "pos" : [960,100]
     }
 }
