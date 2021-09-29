@@ -14,6 +14,7 @@ def send_to_clipboard(image):
     output.close()
 
     win32clipboard.OpenClipboard()
+    
     win32clipboard.EmptyClipboard()
     win32clipboard.SetClipboardData(win32clipboard.CF_DIB, data)
     win32clipboard.CloseClipboard()
